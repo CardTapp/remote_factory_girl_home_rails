@@ -7,7 +7,7 @@ module RemoteFactoryGirlHomeRails
     
     def create 
       if RemoteFactoryGirlHomeRails.enabled?
-        resource = FactoryGirl.create(factory(params), attributes(params))
+        resource = FactoryGirl.create(factory(params), *traits(params), attributes(params))
         render json: Serializer.serialize(resource)
       else
         forbidden = 403
@@ -27,7 +27,13 @@ module RemoteFactoryGirlHomeRails
     end
 
     def attributes(params)
-      params['attributes'] || {}
+      attrs = params['attributes'] || {}
+      attrs.delete(:traits)
+      attrs
+    end
+
+    def traits(params)
+      (params['attributes'] || {})[:traits].map(&:to_sym)
     end
   end
 end
