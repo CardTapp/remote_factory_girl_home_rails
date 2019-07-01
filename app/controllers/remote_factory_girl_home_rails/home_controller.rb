@@ -4,7 +4,7 @@ module RemoteFactoryGirlHomeRails
   class HomeController < ApplicationController
 
     skip_before_filter *RemoteFactoryGirlHomeRails.skip_before_filter
-    skip_before_filter *RemoteFactoryGirlHomeRails.skip_around_filter
+    skip_around_filter *RemoteFactoryGirlHomeRails.skip_around_filter
 
     def create
       if RemoteFactoryGirlHomeRails.enabled?
