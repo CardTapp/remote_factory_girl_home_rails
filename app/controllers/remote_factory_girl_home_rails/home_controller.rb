@@ -1,17 +1,18 @@
 require 'remote_factory_girl_home_rails/serializer'
 
 module RemoteFactoryGirlHomeRails
-  class HomeController < ApplicationController 
+  class HomeController < ApplicationController
 
     skip_before_filter *RemoteFactoryGirlHomeRails.skip_before_filter
-    
-    def create 
+    skip_before_filter *RemoteFactoryGirlHomeRails.skip_around_filter
+
+    def create
       if RemoteFactoryGirlHomeRails.enabled?
         resource = FactoryGirl.create(factory(params), *traits(params), attributes(params))
         render json: Serializer.serialize(resource)
       else
         forbidden = 403
-        render json: { status: forbidden }, status: forbidden 
+        render json: { status: forbidden }, status: forbidden
       end
     end
 

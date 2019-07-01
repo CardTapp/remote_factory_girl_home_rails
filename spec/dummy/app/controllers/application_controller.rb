@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :authenticate, :another_authentication
+around_filter :test, :test2
 
   def authenticate
     redirect_to '/401.html'

@@ -13,7 +13,8 @@ module RemoteFactoryGirlHomeRails
     initializer "remote_factory_girl_home_rails.environment" do |app|
       options = app.config.remote_factory_girl_home_rails
       options.skip_before_filter ||= nil
-      options.enable ||= false 
+      options.skip_around_filter ||= nil
+      options.enable ||= false
     end
   end
 end
