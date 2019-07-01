@@ -14,7 +14,7 @@ module RemoteFactoryBotHomeRails
       options = app.config.remote_factory_bot_home_rails
       options.skip_before_action ||= nil
       options.skip_around_action ||= nil
-
+      options.autoload_factories = false
       options.enable ||= false
     end
   end

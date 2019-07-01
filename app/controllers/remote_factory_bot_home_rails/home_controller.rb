@@ -41,7 +41,8 @@ module RemoteFactoryBotHomeRails
     end
 
     def load_factories
-      return if @factories_loaded || Rails.env.test?
+      return if @factories_loaded
+      return unless RemoteFactoryBotHomeRails.autoload_factories
 
       self.class.find_definitions
       @factories_loaded = true

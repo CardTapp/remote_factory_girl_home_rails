@@ -15,8 +15,12 @@ module RemoteFactoryBotHomeRails
     filters.present? ? [filters].flatten.map(&:to_sym) : nil
   end
 
-  def self.config(config = RemoteFactoryBotHomeRails::Engine.config.remote_factory_bot_home_rails)
+  def autoload_factories
     config
+  end
+
+  def self.config(config = RemoteFactoryBotHomeRails::Engine.config.remote_factory_bot_home_rails)
+    config.autoload_factories
   end
 
   def self.configure
