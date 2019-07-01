@@ -1,8 +1,8 @@
-require 'remote_factory_girl_home_rails/serializer.rb'
+require 'remote_factory_bot_home_rails/serializer.rb'
 
-describe RemoteFactoryGirlHomeRails::Serializer do
+describe RemoteFactoryBotHomeRails::Serializer do
 
-  subject { RemoteFactoryGirlHomeRails::Serializer }
+  subject { RemoteFactoryBotHomeRails::Serializer }
   let(:user) { double('User') }
 
   describe '.serialize' do

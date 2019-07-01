@@ -1,4 +1,4 @@
-module RemoteFactoryGirlHomeRails
+module RemoteFactoryBotHomeRails
   module ApplicationHelper
   end
 end

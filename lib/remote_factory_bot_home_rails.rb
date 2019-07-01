@@ -1,21 +1,21 @@
-require "remote_factory_girl_home_rails/engine"
+require "remote_factory_bot_home_rails/engine"
 
-module RemoteFactoryGirlHomeRails
+module RemoteFactoryBotHomeRails
 
   OFF = false
   ON  = true
 
-  def self.skip_around_filter
-    filters = config.skip_around_filter
+  def self.skip_around_action
+    filters = config.skip_around_action
     filters.present? ? [filters].flatten.map(&:to_sym) : nil
   end
 
-  def self.skip_before_filter
-    filters = config.skip_before_filter
+  def self.skip_before_action
+    filters = config.skip_before_action
     filters.present? ? [filters].flatten.map(&:to_sym) : nil
   end
 
-  def self.config(config = RemoteFactoryGirlHomeRails::Engine.config.remote_factory_girl_home_rails)
+  def self.config(config = RemoteFactoryBotHomeRails::Engine.config.remote_factory_bot_home_rails)
     config
   end
 
@@ -37,7 +37,7 @@ module RemoteFactoryGirlHomeRails
 
   def self.reset
     config.enable = OFF
-    config.skip_before_filter = nil
-    config.skip_around_filter = nil
+    config.skip_before_action = nil
+    config.skip_around_action = nil
   end
 end

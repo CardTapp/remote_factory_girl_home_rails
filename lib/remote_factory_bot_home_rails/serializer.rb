@@ -1,4 +1,4 @@
-module RemoteFactoryGirlHomeRails
+module RemoteFactoryBotHomeRails
   class Serializer
     def self.serialize(resource)
       resource.attributes

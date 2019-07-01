@@ -3,7 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 require File.expand_path("../dummy/spec/factories.rb",  __FILE__)
 
 Rails.backtrace_cleaner.remove_silencers!
@@ -19,7 +19,7 @@ RSpec.configure do |config|
   config.include RSpec::Rails::RequestExampleGroup, type: :feature
 
   config.before(:each) do
-    RemoteFactoryGirlHomeRails.reset
+    RemoteFactoryBotHomeRails.reset
   end
 end
 
