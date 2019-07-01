@@ -1,4 +1,5 @@
 require 'remote_factory_bot_home_rails/serializer'
+require 'factory_bot'
 
 module RemoteFactoryBotHomeRails
   class HomeController < ApplicationController

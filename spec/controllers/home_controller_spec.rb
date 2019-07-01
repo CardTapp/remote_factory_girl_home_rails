@@ -12,6 +12,12 @@ describe RemoteFactoryBotHomeRails::HomeController, type: :controller do
       end
     end
 
+    describe "when '.skip_around_action' methods are configured" do
+      it 'should skip :authentication and :around_test methods defined in ApplicationController' do
+        post :create, params: {'factory' => 'user', 'attributes' => {'first_name' => 'Sam'}}
+        expect(response).to_not redirect_to('/401.html')
+      end
+    end
     describe 'when enabled' do
 
       before { RemoteFactoryBotHomeRails.enable! }
